@@ -182,7 +182,11 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @return node containing the smallest item.
      */
     private AvlNode<AnyType> findMin( AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED
+        while ( t.left != null ) {
+            t = t.left;
+        }
+        return t;
 
     }
 
@@ -191,8 +195,13 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @param t the node that roots the tree.
      * @return node containing the largest item.
      */
+
     private AvlNode<AnyType> findMax( AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED
+        while ( t.right != null ) {
+            t = t.right;
+        }
+        return t;
     }
 
     /**
@@ -202,7 +211,19 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @return true if x is found in subtree.
      */
     private boolean contains( AnyType x, AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED
+        if ( t == null )
+            return false;
+
+        int compareResult = x.compareTo( t.element ); // creating integer for comparing values
+
+        if ( compareResult < 0 ) //if x less than t...
+            return contains( x, t.left ); // recursive call contains, move to t left child for next comparison
+
+        else if ( compareResult > 0 ) //if x greater than t...
+            return contains( x, t.right ); // recursive call contains, move to t right child for next comparison
+        else
+            return true; // found value x = t
     }
 
     /**
@@ -210,7 +231,11 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @param t the node that roots the tree.
      */
     private void printTree( AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED
+        if ( t != null )
+            printTree( t.left );
+            System.out.println( t.element + " " );
+            printTree( t.right );
     }
 
     /**
@@ -273,7 +298,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * Update heights, then return new root.
      */
     private AvlNode<AnyType> doubleWithRightChild( AvlNode<AnyType> k1 ) { // Case III double rotation
-	// FINISH ME
+	// FINISHED
         k1.right = rotateWithLeftChild( k1.right );
         return rotateWithRightChild( k1 );
     }
