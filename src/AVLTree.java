@@ -225,8 +225,16 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * For AVL trees, this is a single rotation for case 1.
      * Update heights, then return new root.
      */
-    private AvlNode<AnyType> rotateWithLeftChild( AvlNode<AnyType> k2 ) {
-	// FINISH ME
+    private AvlNode<AnyType> rotateWithLeftChild( AvlNode<AnyType> k2 ) { // Case I single rotation
+	// FINISHED
+        AvlNode<AnyType> k1 = k2.left; // k2 left child is k1
+        k2.left = k1.right; // k1 right child changed to k2 left child
+        k1.right = k2; // k2 is now k1 right child
+
+        //update heights for k2, k1
+        k2.height = Math.max( height( k2.left ), height( k2.right ) ) + 1;
+        k1.height = Math.max( height( k1.left ), k2.height ) + 1;
+        return k1;
     }
 
     /**
@@ -234,8 +242,16 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * For AVL trees, this is a single rotation for case 4.
      * Update heights, then return new root.
      */
-    private AvlNode<AnyType> rotateWithRightChild( AvlNode<AnyType> k1 ) {
-	// FINISH ME
+    private AvlNode<AnyType> rotateWithRightChild( AvlNode<AnyType> k1 ) { // Case IV single rotation
+	// FINISHED
+        AvlNode<AnyType> k2 = k1.right; // k1 right child is k2
+        k1.right = k2.left; // k2 left child is k1 right child
+        k2.left = k1; // k1 is k2 left child
+
+        // update heights for k1, k2
+        k1.height = Math.max( height( k1.left ), height( k1.right ) ) + 1;
+        k2.height = Math.max( height( k2.left ), k1.height ) + 1;
+        return k2;
     }
 
     /**
@@ -244,8 +260,10 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * For AVL trees, this is a double rotation for case 2.
      * Update heights, then return new root.
      */
-    private AvlNode<AnyType> doubleWithLeftChild( AvlNode<AnyType> k3 ) {
-	// FINISH ME
+    private AvlNode<AnyType> doubleWithLeftChild( AvlNode<AnyType> k3 ) { // Case II double rotation
+	// FINISHED
+        k3.left = rotateWithRightChild( k3.left );
+        return rotateWithLeftChild( k3 );
     }
 
     /**
@@ -254,8 +272,10 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * For AVL trees, this is a double rotation for case 3.
      * Update heights, then return new root.
      */
-    private AvlNode<AnyType> doubleWithRightChild( AvlNode<AnyType> k1 ) {
+    private AvlNode<AnyType> doubleWithRightChild( AvlNode<AnyType> k1 ) { // Case III double rotation
 	// FINISH ME
+        k1.right = rotateWithLeftChild( k1.right );
+        return rotateWithRightChild( k1 );
     }
 
     private static class AvlNode<AnyType> {
