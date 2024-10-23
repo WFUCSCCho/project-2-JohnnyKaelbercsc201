@@ -34,7 +34,6 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     public void insert( AnyType x ) {
         root = insert( x, root );
     }
-
     /**
      * Remove from the tree. Nothing is done if x is not found.
      * @param x the item to remove.
@@ -52,6 +51,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> remove( AnyType x, AvlNode<AnyType> t ) {
 	// FINISH ME
+
     }
 
     /**
@@ -111,8 +111,24 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     private static final int ALLOWED_IMBALANCE = 1;
 
     // Assume t is either balanced or within one of being balanced
-    private AvlNode<AnyType> balance( AvlNode<AnyType> t ) {
-	// FINISH ME
+    private AvlNode<AnyType> balance( AvlNode<AnyType> t ) { // t param, returns t if balanced or balanced t after rotation
+	// FINISHED using Lecture 5.1 resource
+        if ( t == null ) // null case
+            return t;
+
+        if (height( t.left ) - height( t.right ) > ALLOWED_IMBALANCE )
+            if (height( t.left.left ) >= height( t.left.right ) )
+                t = rotateWithLeftChild( t ); // Case I rotation
+            else
+                t = doubleWithLeftChild( t ); // Case II double rotation
+        else if (height( t.right ) - height( t.left ) > ALLOWED_IMBALANCE )
+            if (height( t.right.right ) >= height( t.right.left ) )
+                t = rotateWithRightChild( t ); // Case IV rotation
+            else
+                t = doubleWithRightChild( t ); // Case III double rotation
+
+        t.height = Math.max( height( t.left ), height( t.right ) ) + 1;
+        return t;
     }
 
     public void checkBalance( ) {
@@ -227,6 +243,12 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     }
 
     private static class AvlNode<AnyType> {
+       //class vars
+        AnyType           element;      // The data in the node
+        AvlNode<AnyType>  left;         // Left child
+        AvlNode<AnyType>  right;        // Right child
+        int               height;       // Height
+
         // Constructors
         AvlNode( AnyType theElement ) {
             this( theElement, null, null );
@@ -239,10 +261,6 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
             height   = 0;
         }
 
-        AnyType           element;      // The data in the node
-        AvlNode<AnyType>  left;         // Left child
-        AvlNode<AnyType>  right;        // Right child
-        int               height;       // Height
     }
 
     /** The tree root. */
