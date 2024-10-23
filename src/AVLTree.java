@@ -158,7 +158,22 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @return the new root of the subtree.
      */
     private AvlNode<AnyType> insert( AnyType x, AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED using Lecture 5.1 resource
+        if ( t == null )
+            return new AvlNode<>( x, null, null );
+
+        int compareResult = x.compareTo( t.element );
+
+        if ( compareResult < 0 )
+            t.left = insert( x, t.left ); // if smaller x value, insert left
+
+        else if ( compareResult > 0 )
+            t.right = insert( x, t.right ); // if larger x value, insert right
+
+        else
+            ; // do nothing
+
+        return balance ( t ); // call balance method to keep Avl integrity
     }
 
     /**
@@ -168,6 +183,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> findMin( AvlNode<AnyType> t ) {
 	// FINISH ME
+
     }
 
     /**
