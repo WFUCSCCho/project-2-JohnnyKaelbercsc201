@@ -1,3 +1,10 @@
+/**************************
+ * @file AvlTree.java
+ * @brief This program implements a Comparable interface for a generic Avl tree class
+ * @author John Kaelber
+ * @date October 23, 2024
+ **************************/
+
 // AvlTree class
 //
 // CONSTRUCTION: with no initializer

@@ -2,7 +2,7 @@
  * @file BST.java
  * @brief This program implements a Comparable interface within a generic Binary Search Tree class
  * @author John Kaelber
- * @date September 26, 2024
+ * @date October 23, 2024
  **************************/
 import java.util.Iterator;
 import java.util.NoSuchElementException;

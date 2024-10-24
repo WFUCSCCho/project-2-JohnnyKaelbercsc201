@@ -2,7 +2,7 @@
  * @file Node.java
  * @brief This program implements a Comparable interface within a Node class for BST
  * @author John Kaelber
- * @date September 26, 2024
+ * @date October 23, 2024
  **************************/
 public class Node <E extends Comparable<E>> {
     private E element;
