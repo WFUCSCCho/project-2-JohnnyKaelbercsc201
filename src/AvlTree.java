@@ -51,6 +51,28 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> remove( AnyType x, AvlNode<AnyType> t ) {
 	// FINISH ME
+        if (t == null)
+            return null;
+
+        int compareResult = x.compareTo(t.element);
+
+        if (compareResult < 0)
+            t.left = remove( x, t.left ); // going down left subtree if x less than t
+
+        else if (compareResult > 0)
+            t.right = remove( x, t.right ); // going down right subtree if x is greater than t
+
+        else // x = t found, now remove
+            if (t.left == null) // if node only has right child...
+                return t.right;
+            else if (t.right == null) // if node only has left child
+                return t.left;
+
+            else // if node has 2 children
+                t.element = findMin( t.right ).element; // find min element going down t right subtree & replace t with this
+                t.right = remove(t.element, t.right); // recursive call remove to remove t right child
+
+        return balance( t ); // calls balance method after removal
 
     }
 
