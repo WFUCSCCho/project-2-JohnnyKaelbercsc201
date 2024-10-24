@@ -11,8 +11,8 @@ public class Proj2 {
             System.exit(1);
         }
 
-        String inputFileName = args[0];
-        int numLines = Integer.parseInt(args[1]);
+        String inputFileName = args[0]; //Health_Sleep_Statistics.csv
+        int numLines = Integer.parseInt(args[1]); //101 lines in csv file
 
         // For file input
         FileInputStream inputFileNameStream = null;
@@ -25,44 +25,33 @@ public class Proj2 {
         // ignore first line
         inputFileNameScanner.nextLine();
 
-	// FINISHED
-        // Create a Scanner object for keyboard input
-        Scanner sc = new Scanner(System.in);
-
-        // Get the userID and variant from the user
-        System.out.println("userID: ");
-        String userID = sc.nextLine();
-
-
-        // Create an ArrayList to store the Sleep data
+        //ArrayList to store the Sleep data
         ArrayList<SleepData> sleepDataArrayList = new ArrayList<SleepData>();
 
         // Read the file line by line
-        while (inputFileNameScanner.hasNext()) {
+        while (inputFileNameScanner.hasNext() && sleepDataArrayList.size() < numLines) {
             String line = inputFileNameScanner.nextLine();
             String[] parts = line.split(","); // split the string into multiple parts
 
-            // Check if the country match
-            if (parts[0].equals(userID)) {
-                //User ID, Age, Gender, Sleep Quality, Bedtime, Wake-up Time, Daily Steps, Calories Burned, Physical Activity, Dietary Habits, Sleep Disorders, Medication Usage
-                // TODO: Create a new SleepData object
-                SleepData data = new SleepData(
-                        Integer.parseInt(parts[1]),
-                        Integer.parseInt(parts[2]),
-                        parts[3],
-                        Integer.parseInt(parts[4]),
-                        parts[5],
-                        parts[6],
-                        Integer.parseInt(parts[7]),
-                        Integer.parseInt(parts[8]),
-                        parts[9],
-                        parts[10],
-                        parts[11],
-                        parts[12]
-                );
+
+            //User ID, Age, Gender, Sleep Quality, Bedtime, Wake-up Time, Daily Steps, Calories Burned, Physical Activity, Dietary Habits, Sleep Disorders, Medication Usage
+            // New sleep data object
+            SleepData data = new SleepData(
+                    Integer.parseInt(parts[0]),
+                    Integer.parseInt(parts[1]),
+                    parts[2],
+                    Integer.parseInt(parts[3]),
+                    parts[4],
+                    parts[5],
+                    Integer.parseInt(parts[6]),
+                    Integer.parseInt(parts[7]),
+                    parts[8],
+                    parts[9],
+                    parts[10],
+                    parts[11]
+            );
 
                 sleepDataArrayList.add(data); // add the data onto the ArrayList
-            }
         }
         inputFileNameStream.close(); // because I care
 
@@ -143,25 +132,25 @@ public class Proj2 {
 
         //Printing results
         System.out.println("Number of lines: " + sleepDataArrayList.size());
-        System.out.println("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + "nanoseconds.");
-        System.out.println("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + "nanoseconds.");
-        System.out.println("BST Sorted Insert Running Time: " + BstSortedInsertTime + "nanoseconds.");
-        System.out.println("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + "nanoseconds.");
-        System.out.println("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + "nanoseconds.");
-        System.out.println("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + "nanoseconds.");
-        System.out.println("BST Sorted Search Running Time: " + bstSortedSearchTime + "nanoseconds.");
-        System.out.println("BST Shuffled Search Running Time: " + bstShuffledSearchTime + "nanoseconds.");
+        System.out.println("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + " nanoseconds.");
+        System.out.println("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + " nanoseconds.");
+        System.out.println("BST Sorted Insert Running Time: " + BstSortedInsertTime + " nanoseconds.");
+        System.out.println("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.");
+        System.out.println("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + " nanoseconds.");
+        System.out.println("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + " nanoseconds.");
+        System.out.println("BST Sorted Search Running Time: " + bstSortedSearchTime + " nanoseconds.");
+        System.out.println("BST Shuffled Search Running Time: " + bstShuffledSearchTime + " nanoseconds.");
 
         try (PrintWriter pw = new PrintWriter(new FileOutputStream("output.txt", true))) {
             pw.append("Number of lines: " + sleepDataArrayList.size());
-            pw.append("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + "nanoseconds.");
-            pw.append("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + "nanoseconds.");
-            pw.append("BST Sorted Insert Running Time: " + BstSortedInsertTime + "nanoseconds.");
-            pw.append("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + "nanoseconds.");
-            pw.append("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + "nanoseconds.");
-            pw.append("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + "nanoseconds.");
-            pw.append("BST Sorted Search Running Time: " + bstSortedSearchTime + "nanoseconds.");
-            pw.append("BST Shuffled Search Running Time: " + bstShuffledSearchTime + "nanoseconds.");
+            pw.append("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + " nanoseconds.");
+            pw.append("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + " nanoseconds.");
+            pw.append("BST Sorted Insert Running Time: " + BstSortedInsertTime + " nanoseconds.");
+            pw.append("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.");
+            pw.append("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + " nanoseconds.");
+            pw.append("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + " nanoseconds.");
+            pw.append("BST Sorted Search Running Time: " + bstSortedSearchTime + " nanoseconds.");
+            pw.append("BST Shuffled Search Running Time: " + bstShuffledSearchTime + " nanoseconds.");
         }
         catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
