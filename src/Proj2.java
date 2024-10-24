@@ -1,3 +1,9 @@
+/**************************
+ * @file Proj2.java
+ * @brief This program includes the main. It creates an arraylist with the csv file elements, and it times the insertion and search functions of sorted and randomly created bst and avl trees which are outputted
+ * @author John Kaelber
+ * @date October 23, 2024
+ **************************/
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -131,26 +137,26 @@ public class Proj2 {
         AvlTreeShuffledSearchTime = System.nanoTime() - AvlTreeShuffledSearchTime; // time of avl tree shuffled searches
 
         //Printing results
-        System.out.println("Number of lines: " + sleepDataArrayList.size());
+        System.out.println("\nNumber of lines: " + sleepDataArrayList.size() + "\n");
         System.out.println("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + " nanoseconds.");
         System.out.println("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + " nanoseconds.");
         System.out.println("BST Sorted Insert Running Time: " + BstSortedInsertTime + " nanoseconds.");
-        System.out.println("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.");
+        System.out.println("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.\n");
         System.out.println("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + " nanoseconds.");
         System.out.println("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + " nanoseconds.");
         System.out.println("BST Sorted Search Running Time: " + bstSortedSearchTime + " nanoseconds.");
         System.out.println("BST Shuffled Search Running Time: " + bstShuffledSearchTime + " nanoseconds.");
 
         try (PrintWriter pw = new PrintWriter(new FileOutputStream("output.txt", true))) {
-            pw.append("Number of lines: " + sleepDataArrayList.size());
-            pw.append("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + " nanoseconds.");
-            pw.append("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + " nanoseconds.");
-            pw.append("BST Sorted Insert Running Time: " + BstSortedInsertTime + " nanoseconds.");
-            pw.append("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.");
-            pw.append("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + " nanoseconds.");
-            pw.append("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + " nanoseconds.");
-            pw.append("BST Sorted Search Running Time: " + bstSortedSearchTime + " nanoseconds.");
-            pw.append("BST Shuffled Search Running Time: " + bstShuffledSearchTime + " nanoseconds.");
+            pw.append("\nNumber of lines: " + sleepDataArrayList.size() + "\n");
+            pw.append("AVL Tree Sorted Insert Running Time: " + AvlTreeSortedInsertTime + " nanoseconds.\n");
+            pw.append("AVL Tree Shuffled Insert Running Time: " + AvlTreeShuffledInsertTime + " nanoseconds.\n");
+            pw.append("BST Sorted Insert Running Time: " + BstSortedInsertTime + " nanoseconds.\n");
+            pw.append("BST Shuffled Insert Running Time: " + bstShuffledInsertTime + " nanoseconds.\n");
+            pw.append("AVL Tree Sorted Search Running Time: " + AvlTreeSortedSearchTime + " nanoseconds.\n");
+            pw.append("AVL Tree Shuffled Search Running Time: " + AvlTreeShuffledSearchTime + " nanoseconds.\n");
+            pw.append("BST Sorted Search Running Time: " + bstSortedSearchTime + " nanoseconds.\n");
+            pw.append("BST Shuffled Search Running Time: " + bstShuffledSearchTime + " nanoseconds.\n");
         }
         catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
