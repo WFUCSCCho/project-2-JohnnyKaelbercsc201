@@ -66,16 +66,19 @@ Using your favorite graphing software (e.g., MS Excel or Google Sheets), plot th
 
 BST vs. AVL Tree running time (insertion):
 (insert here)
+![Screenshot 2024-10-24 at 2.45.06 AM.png](../../../../../var/folders/rl/xn9_l21s6x57wq15zlwk7tdw0000gn/T/TemporaryItems/NSIRD_screencaptureui_x3uF3c/Screenshot%202024-10-24%20at%202.45.06%E2%80%AFAM.png)
 
 BST vs. AVL Tree running time (search):
 (insert here)
+![Screenshot 2024-10-24 at 2.46.14 AM.png](../../../../../var/folders/rl/xn9_l21s6x57wq15zlwk7tdw0000gn/T/TemporaryItems/NSIRD_screencaptureui_3i1Hdb/Screenshot%202024-10-24%20at%202.46.14%E2%80%AFAM.png)
 
 BST vs. AVL Tree running rate (insertion):
 (insert here)
+![Screenshot 2024-10-24 at 2.46.41 AM.png](../../../../../var/folders/rl/xn9_l21s6x57wq15zlwk7tdw0000gn/T/TemporaryItems/NSIRD_screencaptureui_quYLTW/Screenshot%202024-10-24%20at%202.46.41%E2%80%AFAM.png)
 
 BST vs. AVL Tree running rate (search):
 (insert here)
-
+![Screenshot 2024-10-24 at 2.46.55 AM.png](../../../../../var/folders/rl/xn9_l21s6x57wq15zlwk7tdw0000gn/T/TemporaryItems/NSIRD_screencaptureui_dWMUDV/Screenshot%202024-10-24%20at%202.46.55%E2%80%AFAM.png)
 ## Submission:
 
 Your project will be developed and graded via GitHub. Your final "push" is your final submission, and it must occur before it is due. On Canvas, enter the url to your Github repository. Your project will not be graded without it.
