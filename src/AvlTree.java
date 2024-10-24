@@ -57,7 +57,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * @return the new root of the subtree.
      */
     private AvlNode<AnyType> remove( AnyType x, AvlNode<AnyType> t ) {
-	// FINISH ME
+	// FINISHED
         if (t == null)
             return null;
 
@@ -212,7 +212,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> findMin( AvlNode<AnyType> t ) {
 	// FINISHED
-        while ( t.left != null ) {
+        while ( t.left != null ) { //goes left... until there is no left
             t = t.left;
         }
         return t;
@@ -227,7 +227,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 
     private AvlNode<AnyType> findMax( AvlNode<AnyType> t ) {
 	// FINISHED
-        while ( t.right != null ) {
+        while ( t.right != null ) { //goes right... until there is no right
             t = t.right;
         }
         return t;
